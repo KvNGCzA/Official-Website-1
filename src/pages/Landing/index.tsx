@@ -1,5 +1,7 @@
+import {useState} from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './index.scss';
-import {SOCIAL_BUTTONS} from './index.constants';
+import {SOCIAL_BUTTONS, MAIL_REGEX} from './index.constants';
 
 const SocialButtons = (): JSX.Element =>
   <div className="social-btns">
@@ -22,18 +24,85 @@ const UpperSection = (): JSX.Element =>
     <h1 className="header">MetaCurse</h1>
   </div>;
 
-const LowerSection = (): JSX.Element =>
-  <div className="lower-section">
-    <div className="access-form">
-      <p className="label">Get early access</p>
-      <input type="email" placeholder="your email address" required className="email-input" />
-      <button className="submit-button">submit</button>
+const LowerSection = (): JSX.Element => {
+  const [contactDetails, setContactDetails] = useState<{
+    email: string;
+    captchaPassed: boolean;
+  }>({
+    email:         '',
+    captchaPassed: false
+  });
 
-      <p className="coming-soon">coming soon</p>
+  const [showCaptcha, setShowCaptcha] = useState<boolean>(false);
+
+  const handleFormChange = (e: any): void => {
+    setContactDetails({
+      ...contactDetails,
+      [e.target.name]: e.target.value
+    });
+
+    if (
+      MAIL_REGEX.test(e.target.value) &&
+      !showCaptcha
+    ) {
+      setShowCaptcha(true);
+    }
+  };
+
+  const disableSubmitButton = (): boolean =>
+    !MAIL_REGEX.test(contactDetails.email) ||
+    !contactDetails.captchaPassed;
+
+  const onCaptchaChange = (passed: any): void => {
+    if (passed) {
+      setCaptchaPassed(true);
+      return;
+    }
+
+    handleCaptchaError();
+  };
+
+  const setCaptchaPassed = (captchaPassed: boolean): void => {
+    setContactDetails({...contactDetails, captchaPassed});
+  };
+
+  const handleCaptchaError = (): void => {
+    setCaptchaPassed(false);
+  };
+
+  return (
+    <div className="lower-section">
+      <div className="access-form">
+        <p className="label">Get early access</p>
+        <input
+          onChange={handleFormChange}
+          type="email"
+          name="email"
+          placeholder="your email address"
+          required
+          className="email-input"
+          value={contactDetails.email} />
+        <div
+          className="captcha" style={{
+          display: showCaptcha ?
+                     'flex' : 'none'
+        }}>
+          <ReCAPTCHA
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY ?? ''}
+            onChange={onCaptchaChange}
+            onErrored={handleCaptchaError}
+            onExpired={handleCaptchaError}
+          />
+        </div>
+        <button className="submit-button" disabled={disableSubmitButton()}>submit</button>
+
+        <p className="coming-soon">coming soon</p>
+      </div>
+
+      <SocialButtons />
     </div>
-
-    <SocialButtons />
-  </div>;
+  );
+};
 
 const Landing = (): JSX.Element => {
   return (
