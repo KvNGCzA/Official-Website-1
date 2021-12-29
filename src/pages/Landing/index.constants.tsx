@@ -1,3 +1,8 @@
+export const INITIAL_STATE = {
+  email:         '',
+  captchaPassed: false
+};
+
 export const SOCIAL_BUTTONS = [
   {
     href:  'https://twitter.com/',

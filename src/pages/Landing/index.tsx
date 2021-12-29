@@ -1,7 +1,16 @@
-import {useState} from 'react';
+import {MutableRefObject, useRef, useState} from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import {toast} from 'react-toastify';
+import {send} from 'emailjs-com';
+import {ContactDetails} from '../../config/interfaces/contact-details.interface';
+import {SOCIAL_BUTTONS, MAIL_REGEX, INITIAL_STATE} from './index.constants';
 import './index.scss';
-import {SOCIAL_BUTTONS, MAIL_REGEX} from './index.constants';
+
+const {
+        REACT_APP_RECAPTCHA_SITE_KEY,
+        REACT_APP_EMAILJS_SERVICE_ID,
+        REACT_APP_EMAILJS_TEMPLATE_ID
+      } = process.env;
 
 const SocialButtons = (): JSX.Element =>
   <div className="social-btns">
@@ -25,15 +34,10 @@ const UpperSection = (): JSX.Element =>
   </div>;
 
 const LowerSection = (): JSX.Element => {
-  const [contactDetails, setContactDetails] = useState<{
-    email: string;
-    captchaPassed: boolean;
-  }>({
-    email:         '',
-    captchaPassed: false
-  });
-
-  const [showCaptcha, setShowCaptcha] = useState<boolean>(false);
+  const [contactDetails, setContactDetails] = useState<ContactDetails>(INITIAL_STATE);
+  const [showCaptcha, setShowCaptcha]       = useState<boolean>(false);
+  const [loading, setLoading]               = useState<boolean>(false);
+  const captchaRef                          = useRef() as MutableRefObject<ReCAPTCHA>;
 
   const handleFormChange = (e: any): void => {
     setContactDetails({
@@ -42,8 +46,8 @@ const LowerSection = (): JSX.Element => {
     });
 
     if (
-      MAIL_REGEX.test(e.target.value) &&
-      !showCaptcha
+      !showCaptcha &&
+      MAIL_REGEX.test(e.target.value)
     ) {
       setShowCaptcha(true);
     }
@@ -51,7 +55,8 @@ const LowerSection = (): JSX.Element => {
 
   const disableSubmitButton = (): boolean =>
     !MAIL_REGEX.test(contactDetails.email) ||
-    !contactDetails.captchaPassed;
+    !contactDetails.captchaPassed ||
+    loading;
 
   const onCaptchaChange = (passed: any): void => {
     if (passed) {
@@ -70,6 +75,30 @@ const LowerSection = (): JSX.Element => {
     setCaptchaPassed(false);
   };
 
+  const handleSubmit = async (e: any): Promise<void> => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      await send(
+        REACT_APP_EMAILJS_SERVICE_ID || '',
+        REACT_APP_EMAILJS_TEMPLATE_ID || '',
+        contactDetails as any
+      );
+      setContactDetails(INITIAL_STATE);
+      setShowCaptcha(false);
+      captchaRef.current.reset();
+      toast('Subscription successful!', {type: 'success'});
+    } catch (_error) {
+      toast(
+        'An error has occurred! Please try again',
+        {type: 'error'}
+      );
+    }
+
+    setLoading(false);
+  };
+
   return (
     <div className="lower-section">
       <div className="access-form">
@@ -83,18 +112,23 @@ const LowerSection = (): JSX.Element => {
           className="email-input"
           value={contactDetails.email} />
         <div
-          className="captcha" style={{
-          display: showCaptcha ?
-                     'flex' : 'none'
-        }}>
+          className="captcha"
+          style={{display: showCaptcha ? 'flex' : 'none'}}
+        >
           <ReCAPTCHA
-            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY ?? ''}
+            sitekey={REACT_APP_RECAPTCHA_SITE_KEY ?? ''}
             onChange={onCaptchaChange}
             onErrored={handleCaptchaError}
             onExpired={handleCaptchaError}
+            ref={captchaRef}
           />
         </div>
-        <button className="submit-button" disabled={disableSubmitButton()}>submit</button>
+        <button
+          className="submit-button"
+          disabled={disableSubmitButton()}
+          onClick={handleSubmit}
+        >submit
+        </button>
 
         <p className="coming-soon">coming soon</p>
       </div>

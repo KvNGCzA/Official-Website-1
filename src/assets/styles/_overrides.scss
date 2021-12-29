@@ -4,7 +4,16 @@ button, a {
   }
 
   &:disabled {
-    opacity: 0.2;
     cursor:  not-allowed;
+    opacity: 0.2;
   }
+}
+
+:root {
+  --toastify-color-progress-success: rgba(37, 44, 54, 0.43) !important;
+  --toastify-color-success:          #000000 !important;
+}
+
+.Toastify__toast--success {
+  background: #FCD98D !important;
 }
