@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'functions';
+
+@mixin inputBorder {
+  border:              2px solid;
+  border-image-slice:  1;
+  border-image-source: linear-gradient(to bottom, #FCD98D9E, #37F4FE83);
+  background:          transparent;
+  color:               $meta-text-white;
+  font-family:         $euclid;
+  font-size:           rem-calc(16);
+  outline:             none !important;
+  height:              58px;
+  width:               100%;
+  padding:             0 21px;
+  font-weight:         500;
+
+  &::placeholder {
+    color: $meta-text-white;
+  }
+}
