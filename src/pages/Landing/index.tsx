@@ -110,33 +110,7 @@ const LowerSection = (): JSX.Element => {
       <SocialButtons />
 
       <div className="access-form">
-        <p className="label">Get early access</p>
-        <input
-          onChange={handleFormChange}
-          type="email"
-          name="email"
-          placeholder="your email address"
-          required
-          className="email-input"
-          value={contactDetails.email} />
-        {REACT_APP_RECAPTCHA_SITE_KEY ? <div
-          className="captcha"
-          style={{display: showCaptcha ? 'flex' : 'none'}}
-        >
-          <ReCAPTCHA
-            sitekey={REACT_APP_RECAPTCHA_SITE_KEY ?? ''}
-            onChange={onCaptchaChange}
-            onErrored={handleCaptchaError}
-            onExpired={handleCaptchaError}
-            ref={captchaRef}
-          />
-        </div> : null}
-        <button
-          className="submit-button"
-          disabled={disableSubmitButton()}
-          onClick={handleSubmit}
-        >submit
-        </button>
+       
 
         <p className="coming-soon">coming soon</p>
       </div>
