@@ -4,17 +4,15 @@
 
 .landing-wrapper {
   align-items:    center;
-  background:     $meta-black;
   display:        flex;
   flex-direction: column;
-  min-height:     100vh;
   overflow:       hidden;
   width:          100vw;
 
   .upper-section {
     background:      url('../../assets/images/intro-bckgd.svg') no-repeat 0 35px;
     background-size: cover;
-    padding:         95px 10px 60px;
+    padding:         20px 10px 60px;
     text-align:      center;
     width:           100%;
 
@@ -36,13 +34,12 @@
 
   .lower-section {
     align-items:     center;
-    background:      url('../../assets/images/landing-image.svg') no-repeat left top;
     display:         flex;
     flex:            1;
     flex-direction:  column;
     justify-content: flex-start;
     max-width:       1440px;
-    padding:         42px 0;
+    padding:         42px 0 0;
     width:           100%;
 
     .access-form {
@@ -102,7 +99,7 @@
       display:         flex;
       flex-wrap:       wrap;
       justify-content: space-between;
-      margin-right:    31px;
+      margin-bottom:   20px;
       width:           500px;
 
       .social-btn {
@@ -145,7 +142,6 @@
 
       .social-btns {
         justify-content: center;
-        margin:          0;
         width:           100%;
 
         .social-btn {

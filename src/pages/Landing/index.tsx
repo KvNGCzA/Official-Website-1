@@ -1,4 +1,4 @@
-import {MutableRefObject, useRef, useState} from 'react';
+import {MutableRefObject, useEffect, useRef, useState} from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import {toast} from 'react-toastify';
 import {send} from 'emailjs-com';
@@ -39,6 +39,12 @@ const LowerSection = (): JSX.Element => {
   const [loading, setLoading]               = useState<boolean>(false);
   const captchaRef                          = useRef() as MutableRefObject<ReCAPTCHA>;
 
+  useEffect(() => {
+    if (!REACT_APP_RECAPTCHA_SITE_KEY) {
+      toast('ReCaptcha siteKey missing, Please contact admin', {type: 'error'});
+    }
+  }, []);
+
   const handleFormChange = (e: any): void => {
     setContactDetails({
       ...contactDetails,
@@ -55,7 +61,7 @@ const LowerSection = (): JSX.Element => {
 
   const disableSubmitButton = (): boolean =>
     !MAIL_REGEX.test(contactDetails.email) ||
-    !contactDetails.captchaPassed ||
+    (!contactDetails.captchaPassed && Boolean(REACT_APP_RECAPTCHA_SITE_KEY)) ||
     loading;
 
   const onCaptchaChange = (passed: any): void => {
@@ -87,7 +93,7 @@ const LowerSection = (): JSX.Element => {
       );
       setContactDetails(INITIAL_STATE);
       setShowCaptcha(false);
-      captchaRef.current.reset();
+      captchaRef?.current?.reset?.();
       toast('Subscription successful!', {type: 'success'});
     } catch (_error) {
       toast(
@@ -101,6 +107,8 @@ const LowerSection = (): JSX.Element => {
 
   return (
     <div className="lower-section">
+      <SocialButtons />
+
       <div className="access-form">
         <p className="label">Get early access</p>
         <input
@@ -111,7 +119,7 @@ const LowerSection = (): JSX.Element => {
           required
           className="email-input"
           value={contactDetails.email} />
-        <div
+        {REACT_APP_RECAPTCHA_SITE_KEY ? <div
           className="captcha"
           style={{display: showCaptcha ? 'flex' : 'none'}}
         >
@@ -122,7 +130,7 @@ const LowerSection = (): JSX.Element => {
             onExpired={handleCaptchaError}
             ref={captchaRef}
           />
-        </div>
+        </div> : null}
         <button
           className="submit-button"
           disabled={disableSubmitButton()}
@@ -133,7 +141,6 @@ const LowerSection = (): JSX.Element => {
         <p className="coming-soon">coming soon</p>
       </div>
 
-      <SocialButtons />
     </div>
   );
 };
