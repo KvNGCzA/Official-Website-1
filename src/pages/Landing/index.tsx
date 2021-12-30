@@ -1,5 +1,4 @@
 import {MutableRefObject, useEffect, useRef, useState} from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import {toast} from 'react-toastify';
 import {send} from 'emailjs-com';
 import {ContactDetails} from '../../config/interfaces/contact-details.interface';
@@ -109,12 +108,8 @@ const LowerSection = (): JSX.Element => {
     <div className="lower-section">
       <SocialButtons />
 
-      <div className="access-form">
-       
-
         <p className="coming-soon">coming soon</p>
-      </div>
-
+      
     </div>
   );
 };
