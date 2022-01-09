@@ -14,7 +14,7 @@ const SectionTwo = (): JSX.Element =>
   <div className="section section__two">
     {SECTION_TWO.map(section =>
       <div
-        className="bot-card" key={section.head} style={section?.cardStyles}>
+        className="bot-card" id={section.id} key={section.head} style={section?.cardStyles}>
         <img src={section.image} className="bot-image" alt={section.head} style={section?.imageStyles} />
         <div className="text-content">
           <p className="head">{section.head}</p>
@@ -60,8 +60,7 @@ const SectionThree = (): JSX.Element => {
 const SectionFour = (): JSX.Element =>
   <div className="section section__four">
     <p className="coming-soon-text">coming in</p>
-    <img src={TwentyTwentyTwo} alt="coming in 2022" width={370} height="auto" />
-
+    <img src={TwentyTwentyTwo} alt="coming in 2022" width={370} height="auto" className="twenty-twenty-two" />
     <Footer />
   </div>;
 

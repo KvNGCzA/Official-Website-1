@@ -7,6 +7,7 @@
   background-size: cover;
   margin:          auto;
   max-width:       1728px;
+  width:           100%;
 
   .section {
     width: 100%;
@@ -41,6 +42,44 @@
     &__two {
       .section-image {
         height: 613px;
+      }
+
+      #section-two-back {
+        margin-top: 52px;
+
+        .bot-image {
+          margin-left: 116px;
+          width:       29%;
+        }
+      }
+
+      #section-three-back {
+        padding: 0 370px 0 128px;
+
+        .bot-image {
+          position: absolute;
+          right:    20%;
+          top:      -124px;
+          width:    13.5%;
+        }
+      }
+
+      #section-four-back {
+        padding: 317px 0 0 128px;
+
+        .bot-image {
+          width: 44%;
+        }
+      }
+
+      #section-five-back {
+        justify-content: space-between;
+        padding-left:    128px;
+
+        .bot-image {
+          margin: 56px 60px 0 0;
+          width:  50%;
+        }
       }
 
       .bot-card {
@@ -232,9 +271,167 @@
   }
 }
 
+@media only screen and (max-width: 1440px) {
+  .landing-wrapper {
+    .section {
+      &__one {
+        padding: 199px 0;
+      }
+
+      &__two {
+        .bot-card {
+          justify-content: space-around !important;
+          margin:          90px 0 !important;
+          padding:         0 40px !important;
+
+          .bot-image {
+            margin:   0 !important;
+            position: initial !important;
+          }
+
+          .text-content {
+            margin: 0 !important;
+            width:  50% !important;
+
+            .head {
+              font-size: rem-calc(32) !important;
+            }
+
+            .description {
+              font-size: rem-calc(16) !important;
+              max-width: initial !important;
+            }
+          }
+        }
+
+        #section-two-back {
+          .bot-image {
+            width: 50% !important;
+          }
+        }
+
+        #section-three-back {
+
+          .bot-image {
+            width: 30% !important;
+          }
+        }
+      }
+
+      &__three {
+        .head {
+          font-size: rem-calc(32);
+        }
+
+        .description {
+          font-size: rem-calc(16);
+        }
+
+        .group-menu {
+          margin: 50px 0;
+
+          .group-menu__item {
+            font-size: rem-calc(16);
+          }
+        }
+
+        .character-card {
+          height: 355px;
+          width:  29%;
+
+          .image-cont {
+
+            .circle {
+              height: 189px;
+              width:  189px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1328px) {
+  .landing-wrapper {
+    .section {
+      &__two {
+        #section-three-back {
+          .bot-image {
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1577px) {
+  .landing-wrapper {
+    .section {
+      &__two {
+        #section-three-back {
+
+          .bot-image {
+            right: 80px;
+          }
+        }
+
+        #section-four-back {
+          padding: 77px 0 0 128px;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 944px) {
   .landing-wrapper {
     .section {
+      &__one {
+        padding: 100px 10px;
+
+        .tag-line {
+          font-size: rem-calc(16);
+          padding:   0;
+        }
+
+        .image {
+          width: 80%;
+        }
+      }
+
+      &__two {
+        .bot-card {
+          align-items:    center;
+          flex-direction: column !important;
+          margin:         40px 0 90px !important;
+          padding:        0 29px !important;
+
+          &:first-of-type {
+            margin-top: 0 !important;
+          }
+
+          .bot-image {
+            height:        fit-content;
+            margin-bottom: 30px !important;
+            width:         100% !important;
+
+          }
+
+          .text-content {
+            margin-bottom: 15px !important;
+            text-align:    center;
+            width:         100% !important;
+
+            .head {
+              margin-bottom: 21px;
+              white-space:   initial;
+            }
+          }
+        }
+      }
+
       &__three {
 
         .group-menu {
@@ -244,6 +441,7 @@
         .item-list {
           align-items:    center;
           flex-direction: column;
+          padding:        0 29px;
         }
 
         .character-card {
@@ -260,6 +458,18 @@
           &:last-of-type {
             margin-bottom: 0;
           }
+        }
+      }
+
+      &__four {
+        padding: 590px 0 40px;
+
+        .coming-soon-text {
+          font-size: rem-calc(18);
+        }
+
+        .twenty-twenty-two {
+          width: 160px;
         }
       }
     }
