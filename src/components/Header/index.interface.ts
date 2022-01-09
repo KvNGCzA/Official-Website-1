@@ -1,4 +1,9 @@
 export interface MenuItem {
-  text: string;
   link: string;
+  text: string;
+}
+
+export interface NavBarProps {
+  menuOpen: boolean;
+  togglemenu: any;
 }
