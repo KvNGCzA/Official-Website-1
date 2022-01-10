@@ -49,7 +49,7 @@ On top of these attack types, there will be seven different elemental attack mod
   }, {
     image:       DesktopGame,
     head:        'FAMILIAR\nCHARACTERS',
-    description: `There will be familiar NFT characters, playable inside Metacurse game. The NFTs will use Deftify token (DFTY) staking mechanism if you want to use them and win in-game rewards`,
+    description: `There will be familiar NFT characters, playable inside Metacurse game. The NFTs will use Deftify token (DFTY) staking mechanism if you want to play them and win in-game rewards`,
     background:  'section-five-back',
     id:          'section-five-back'
   }
