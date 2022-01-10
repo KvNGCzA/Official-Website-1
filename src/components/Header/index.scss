@@ -79,6 +79,10 @@
   .header-wrapper {
     .header-container {
       position: relative;
+
+      .logo {
+        width: 120px;
+      }
     }
 
     .navigation {

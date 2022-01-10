@@ -3,57 +3,16 @@ import P2EBot from '../../assets/images/p2e-bot.png';
 import ExploreBot from '../../assets/images/explore-bot.png';
 import DesktopGame from '../../assets/images/desktop-game.png';
 import Pyramid from '../../assets/images/pyramid.png';
-import GifLogo from '../../assets/images/logo.png';
+import GifLogo from '../../assets/images/logo.gif';
+import GifCharacters from '../../assets/images/gif-characters.png';
 import Kong from '../../assets/images/kong.png';
 import Diana from '../../assets/images/diana.png';
 import Robert from '../../assets/images/robert.png';
 
-export const INITIAL_STATE = {
-  email:         '',
-  captchaPassed: false
-};
-
-export const SOCIAL_BUTTONS = [
-  {
-    href:  'https://twitter.com/',
-    image: './icons/twitter-24.png',
-    alt:   'Twitter'
-  }, {
-    href:  'https://t.me/',
-    image: './icons/telegram-24.png',
-    alt:   'Telegram'
-  }, {
-    href:  'https://discord.gg/',
-    image: './icons/discord-24.png',
-    alt:   'Discord'
-  }, {
-    href:  'https://medium.com/',
-    image: './icons/medium-24.png',
-    alt:   'Medium'
-  }, {
-    href:  'https://www.reddit.com/',
-    image: './icons/reddit-24.png',
-    alt:   'Reddit'
-  }, {
-    href:  'https://www.linkedin.com/',
-    image: './icons/linkedin-24.png',
-    alt:   'LinkedIn'
-  }, {
-    href:  'https://www.facebook.com/',
-    image: './icons/facebook-24.png',
-    alt:   'Facebook'
-  }, {
-    href:  'https://www.instagram.com/',
-    image: './icons/instagram-24.png',
-    alt:   'Instagram'
-  }
-];
-
-export const MAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-
 export const SECTION_ONE = {
-  image:       GifLogo,
-  description: `“The year is 42069. All that is left of Earth are the vestiges of humanity too addicted to the metaverse to notice the dying planet they were trying so desperately to escape. The colossal Zuckerbot still roams the desolate remains of what was civilization, scanning for what is no longer there…”`
+  image:         GifLogo,
+  gifCharacters: GifCharacters,
+  description:   `“The year is 42069. All that is left of Earth are the vestiges of humanity too addicted to the metaverse to notice the dying planet they were trying so desperately to escape. The colossal Zuckerbot still roams the desolate remains of what was civilization, scanning for what is no longer there…”`
 };
 
 export const SECTION_TWO: {

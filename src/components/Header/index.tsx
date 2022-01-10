@@ -75,7 +75,7 @@ const Header = (): JSX.Element => {
         background: darkenHeader ? '#0A060D' : 'rgba(0, 0, 0, 0.6)'
       }}>
         <div className="header-container">
-          <NeonLogo />
+          <NeonLogo className="logo" />
           <NavBar menuOpen={menuOpen} togglemenu={toggleMenu} />
         </div>
       </div>
