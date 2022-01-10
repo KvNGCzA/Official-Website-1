@@ -1,0 +1,31 @@
+.footer {
+  align-items:     center;
+  display:         flex;
+  justify-content: center;
+  margin-top:      80px;
+  width:           100%;
+
+  .social-icon {
+    margin: 0 30px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 944px) {
+  .footer {
+    justify-content: space-around;
+
+    .social-icon {
+      height: 48px;
+      margin: 0;
+      width:  48px;
+    }
+  }
+}

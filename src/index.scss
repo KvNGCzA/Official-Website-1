@@ -10,18 +10,17 @@
   padding:    0;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
-  background:              $meta-black;
+  background:              radial-gradient(108.26% 128.94% at 96.04% -1.63%, #BD1790 0%, #0A7472 42.19%, #0A060D 100%);
+  background-attachment:   fixed;
   font-family:             -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
                            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
                            sans-serif;
   -webkit-font-smoothing:  antialiased;
   min-height:              100vh;
+  min-width:               100vw;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x:              hidden;
 }
 
 code {
