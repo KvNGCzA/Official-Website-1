@@ -3,11 +3,19 @@
 @import 'src/assets/styles/functions';
 
 .landing-wrapper {
-  background:      url('../../../public/images/web-background.png') no-repeat top center;
-  background-size: cover;
-  margin:          auto;
-  max-width:       1728px;
-  width:           100%;
+  display:        flex;
+  flex-direction: column;
+  margin:         auto;
+  max-width:      1728px;
+  width:          100%;
+
+  .mid-section {
+    background:      url('../../../public/images/web-background.png') no-repeat top center;
+    background-size: cover;
+    padding-top:     58px;
+    position:        relative;
+    top:             -1px;
+  }
 
   .section {
     width: 100%;
@@ -59,8 +67,8 @@
         .bot-image {
           position: absolute;
           right:    20%;
-          top:      -124px;
-          width:    13.5%;
+          top:      -107px;
+          width:    13.2%;
         }
       }
 
@@ -69,6 +77,10 @@
 
         .bot-image {
           width: 44%;
+        }
+
+        .text-content {
+          margin-top: 100px;
         }
       }
 
@@ -122,6 +134,30 @@
             font-size:   rem-calc(20);
             max-width:   753px;
             white-space: break-spaces;
+          }
+        }
+
+        &#section-two-back {
+          .text-content {
+            .description {
+              max-width: 728px;
+            }
+          }
+        }
+
+        &#section-three-back {
+          .text-content {
+            .description {
+              max-width: 806px;
+            }
+          }
+        }
+
+        &#section-five-back {
+          .text-content {
+            .description {
+              max-width: 559px;
+            }
           }
         }
       }
@@ -273,9 +309,17 @@
 
 @media only screen and (max-width: 1440px) {
   .landing-wrapper {
+    .mid-section {
+      padding: 12px 0 0;
+    }
+
     .section {
       &__one {
-        padding: 199px 0;
+        padding: 100px 0;
+
+        .image {
+          width: 40%;
+        }
       }
 
       &__two {
@@ -284,6 +328,38 @@
           margin:          90px 0 !important;
           padding:         0 40px !important;
 
+          &#section-two-back {
+            .text-content {
+              .description {
+                max-width: 583px;
+              }
+            }
+          }
+
+          &#section-three-back {
+            .text-content {
+              .description {
+                max-width: 643px;
+              }
+            }
+          }
+
+          &#section-four-back {
+            .text-content {
+              .description {
+                max-width: 602px;
+              }
+            }
+          }
+
+          &#section-five-back {
+            .text-content {
+              .description {
+                max-width: 443px;
+              }
+            }
+          }
+
           .bot-image {
             margin:   0 !important;
             position: initial !important;
@@ -291,7 +367,6 @@
 
           .text-content {
             margin: 0 !important;
-            width:  50% !important;
 
             .head {
               font-size: rem-calc(32) !important;
@@ -299,21 +374,21 @@
 
             .description {
               font-size: rem-calc(16) !important;
-              max-width: initial !important;
             }
           }
         }
 
         #section-two-back {
           .bot-image {
-            width: 50% !important;
+            width: 30% !important;
           }
         }
 
         #section-three-back {
 
           .bot-image {
-            width: 30% !important;
+            position: relative !important;
+            top:      -70px !important;
           }
         }
       }
@@ -389,7 +464,7 @@
   .landing-wrapper {
     .section {
       &__one {
-        padding: 100px 10px;
+        padding: 100px 29px;
 
         .tag-line {
           font-size: rem-calc(16);
@@ -397,7 +472,7 @@
         }
 
         .image {
-          width: 80%;
+          width: 50%;
         }
       }
 
@@ -416,17 +491,45 @@
             height:        fit-content;
             margin-bottom: 30px !important;
             width:         100% !important;
+          }
 
+          &#section-two-back {
+            .bot-image {
+              width: 35% !important;
+            }
+          }
+
+          &#section-three-back {
+            .bot-image {
+              position: initial !important;
+              width:    17% !important;
+            }
+          }
+
+          &#section-four-back {
+            .bot-image {
+              width: 44% !important;
+            }
+          }
+
+          &#section-five-back {
+            .bot-image {
+              width: 58% !important;
+            }
           }
 
           .text-content {
+            margin:        0 auto;
             margin-bottom: 15px !important;
             text-align:    center;
-            width:         100% !important;
 
             .head {
               margin-bottom: 21px;
               white-space:   initial;
+            }
+
+            .description {
+              width: 100% !important;
             }
           }
         }

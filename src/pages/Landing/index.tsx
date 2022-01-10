@@ -68,9 +68,11 @@ const Landing = (): JSX.Element => {
   return (
     <div className="landing-wrapper">
       <SectionOne />
-      <SectionTwo />
-      <SectionThree />
-      <SectionFour />
+      <div className="mid-section">
+        <SectionTwo />
+        <SectionThree />
+        <SectionFour />
+      </div>
     </div>
   );
 };
