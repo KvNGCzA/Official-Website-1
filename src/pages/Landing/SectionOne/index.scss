@@ -41,6 +41,7 @@
       display:         flex;
       justify-content: center;
       margin-bottom:   70px;
+      opacity:         0;
       position:        relative;
       width:           786px;
       z-index:         1;
@@ -63,8 +64,12 @@
       font-size:   rem-calc(20);
       font-weight: 800;
       max-width:   971px;
+      opacity:     0;
       padding:     0 29px;
+      position:    relative;
       text-align:  center;
+      top:         1000px;
+      z-index:     1;
     }
   }
 }
@@ -88,7 +93,7 @@
 @media only screen and (max-width: 944px) {
   .section {
     &__one {
-      padding: 210px 29px 100px;
+      padding: 210px 29px 30px;
 
       .tag-line {
         font-size: rem-calc(16);
