@@ -10,7 +10,29 @@
     display:          flex;
     flex-direction:   column;
     justify-content:  center;
+    overflow:         hidden;
     padding:          299px 0;
+    position:         relative;
+
+    .scrolling-image {
+      background-size: 30% !important;
+      height:          500%;
+      left:            0;
+      opacity:         0.3;
+      position:        absolute;
+      top:             0;
+      width:           100%;
+
+      &__one {
+        animation:  slide 75s infinite;
+        background: url('../../../assets/images/stars-01.png') repeat;
+      }
+
+      &__two {
+        animation:  slide 60s linear infinite;
+        background: url('../../../assets/images/stars-02.png') repeat;
+      }
+    }
 
     .gif-wrapper {
       align-items:     center;
@@ -21,6 +43,7 @@
       margin-bottom:   70px;
       position:        relative;
       width:           786px;
+      z-index:         1;
 
       .characters {
         position: absolute;
@@ -81,5 +104,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0;
   }
 }

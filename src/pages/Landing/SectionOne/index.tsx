@@ -8,6 +8,8 @@ const SectionOne = (): JSX.Element =>
       <img src={SECTION_ONE.image} alt="metacurse gif logo" className="image" />
     </div>
     <p className="tag-line">{SECTION_ONE.description}</p>
+    <div className="scrolling-image scrolling-image__one" />
+    <div className="scrolling-image scrolling-image__two" />
   </div>;
 
 export default SectionOne;
