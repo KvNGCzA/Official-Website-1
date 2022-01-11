@@ -24,7 +24,7 @@
       width:           100%;
 
       &__one {
-        animation:  slide 75s infinite;
+        animation:  slide 75s linear infinite;
         background: url('../../../assets/images/stars-01.png') repeat;
       }
 

@@ -5,8 +5,8 @@ import './index.scss';
 
 const SectionThree = (): JSX.Element => {
   const [selected, setSelected] = useState('characters');
-  const wrapperRef              = useRef() as MutableRefObject<any>;
   const [animated, setAnimated] = useState<boolean>(false);
+  const wrapperRef              = useRef() as MutableRefObject<any>;
   const headRef                 = useRef() as MutableRefObject<any>;
   const descriptionRef          = useRef() as MutableRefObject<any>;
   const groupMenuRef            = useRef() as MutableRefObject<any>;
@@ -23,9 +23,9 @@ const SectionThree = (): JSX.Element => {
       formAnimationObject(descriptionRef, 'left', '0', 0),
       formAnimationObject(groupMenuRef, 'opacity', 1, 3000),
       ...characterRef.current.map((ref: any, index: number) =>
-        formAnimationObject(ref, 'opacity', 1, 2000 + (index * 500))),
+        formAnimationObject(ref, 'opacity', 1, 2000 + (index * 800))),
       ...characterRef.current.map((ref: any, index: number) =>
-        formAnimationObject(ref, 'left', 0, 1000 + (index * 500)))
+        formAnimationObject(ref, 'left', 0, 1000 + (index * 800)))
     ];
 
     addAnimation(animations);
