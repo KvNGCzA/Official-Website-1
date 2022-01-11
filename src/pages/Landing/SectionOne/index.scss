@@ -10,8 +10,9 @@
     display:          flex;
     flex-direction:   column;
     justify-content:  center;
+    min-height:       100vh;
     overflow:         hidden;
-    padding:          299px 0;
+    padding:          299px 29px;
     position:         relative;
 
     .scrolling-image {
@@ -93,7 +94,9 @@
 @media only screen and (max-width: 944px) {
   .section {
     &__one {
-      padding: 210px 29px 30px;
+      align-items:     center;
+      display:         flex;
+      justify-content: center;
 
       .tag-line {
         font-size: rem-calc(16);

@@ -12,11 +12,11 @@ const Card = ({section}: { section: any; }) => {
 
   const runAnimations = useCallback((): void => {
     const animations = [
-      formAnimationObject(headRef, 'left', 0, 0),
-      formAnimationObject(descriptionRef, 'left', 0, 0),
-      formAnimationObject(headRef, 'opacity', 1, 0),
-      formAnimationObject(descriptionRef, 'opacity', 1, 1000),
-      formAnimationObject(imageRef, 'right', section?.animate?.right ?? 0, 0),
+      formAnimationObject(headRef, 'left'),
+      formAnimationObject(descriptionRef, 'left'),
+      formAnimationObject(headRef, 'opacity', 1),
+      formAnimationObject(descriptionRef, 'opacity', 1, 500),
+      formAnimationObject(imageRef, 'right', section?.animate?.right ?? 0),
       formAnimationObject(imageRef, 'opacity', 1, 1500)
     ];
 
@@ -24,9 +24,7 @@ const Card = ({section}: { section: any; }) => {
   }, [section]);
 
   const handleScroll = useCallback(() => {
-    if (containerIsInViewport(
-      wrapperRef, animated, -150
-    )) {
+    if (containerIsInViewport(wrapperRef, animated)) {
       setAnimated(() => {
         runAnimations();
         return true;

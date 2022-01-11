@@ -5,10 +5,6 @@ import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-window.onbeforeunload = () => {
-  window.scrollTo(0, 0);
-};
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

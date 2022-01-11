@@ -13,14 +13,12 @@ const Footer = () => {
 
   const runAnimations = useCallback(() => {
     const animations = iconRef.current.map((ref: any, index: number) =>
-      formAnimationObject(ref, 'left', 0, 2000 + (index * 800)));
+      formAnimationObject(ref, 'left', 0, index * 500));
     addAnimation(animations);
   }, []);
 
   const handleScroll = useCallback(() => {
-    if (containerIsInViewport(
-      wrapperRef, animated, 300
-    )) {
+    if (containerIsInViewport(wrapperRef, animated)) {
       setAnimated(() => {
         runAnimations();
         return true;

@@ -17,15 +17,15 @@ const SectionThree = (): JSX.Element => {
 
   const runAnimations = useCallback(() => {
     const animations = [
-      formAnimationObject(headRef, 'opacity', 1, 0),
-      formAnimationObject(headRef, 'right', '0', 0),
-      formAnimationObject(descriptionRef, 'opacity', 1, 0),
-      formAnimationObject(descriptionRef, 'left', '0', 0),
-      formAnimationObject(groupMenuRef, 'opacity', 1, 3000),
+      formAnimationObject(headRef, 'opacity', 1),
+      formAnimationObject(headRef, 'right', '0'),
+      formAnimationObject(descriptionRef, 'opacity', 1, 500),
+      formAnimationObject(descriptionRef, 'left', '0', 500),
+      formAnimationObject(groupMenuRef, 'opacity', 1, 1000),
       ...characterRef.current.map((ref: any, index: number) =>
-        formAnimationObject(ref, 'opacity', 1, 2000 + (index * 800))),
+        formAnimationObject(ref, 'opacity', 1, 1200 + (index * 800))),
       ...characterRef.current.map((ref: any, index: number) =>
-        formAnimationObject(ref, 'left', 0, 1000 + (index * 800)))
+        formAnimationObject(ref, 'left', 0, 1200 + (index * 800)))
     ];
 
     addAnimation(animations);
