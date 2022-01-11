@@ -24,6 +24,7 @@ export const SECTION_TWO: {
   cardStyles?: CSSProperties;
   descriptionStyles?: CSSProperties;
   id: string;
+  animate?: any;
 }[] = [
   {
     image:       P2EBot,
@@ -36,7 +37,10 @@ export const SECTION_TWO: {
     head:        'EXPLORE AND CONQUER',
     description: `You will be able to roam in our metaverse world, and challenge friends and foes online in a battle arena that requires you to outsmart the opponent players and predict their moves. In MetaCurse, you will engage with friends in different types of activities, get quests from NPCs, buy lands and other virtual assets, build their own virtual buildings, and get into adventure to explore hidden treasures. `,
     background:  'section-three-back',
-    id:          'section-three-back'
+    id:          'section-three-back',
+    animate:     {
+      right: window.innerWidth <= 1440 ? '80px' : '20%'
+    }
   }, {
     image:       Pyramid,
     head:        'FUN COMBAT SYSTEM',

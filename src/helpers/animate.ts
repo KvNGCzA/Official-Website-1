@@ -23,8 +23,8 @@ export const addAnimation = (animations: Animation[]): void => {
   }
 };
 
-export const containerIsInViewport = (ref: MutableRefObject<any>, animated: boolean): boolean =>
-  window.scrollY >= ref?.current?.getBoundingClientRect()?.y - 150 &&
+export const containerIsInViewport = (ref: MutableRefObject<any>, animated: boolean, pad?: number): boolean =>
+  window.scrollY >= ref?.current?.getBoundingClientRect()?.y + (pad ?? 150) &&
   !animated;
 
 export const formAnimationObject = (ref: MutableRefObject<any>, attr: string, value: any, time: number): Animation => ({

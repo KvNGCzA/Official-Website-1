@@ -16,16 +16,16 @@ const Card = ({section}: { section: any; }) => {
       formAnimationObject(descriptionRef, 'left', 0, 0),
       formAnimationObject(headRef, 'opacity', 1, 0),
       formAnimationObject(descriptionRef, 'opacity', 1, 1000),
-      formAnimationObject(imageRef, 'right', 0, 0),
+      formAnimationObject(imageRef, 'right', section?.animate?.right ?? 0, 0),
       formAnimationObject(imageRef, 'opacity', 1, 1500)
     ];
 
     addAnimation(animations);
-  }, []);
+  }, [section]);
 
   const handleScroll = useCallback(() => {
     if (containerIsInViewport(
-      wrapperRef, animated
+      wrapperRef, animated, -150
     )) {
       setAnimated(() => {
         runAnimations();
@@ -38,7 +38,7 @@ const Card = ({section}: { section: any; }) => {
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+  }, [handleScroll, section]);
 
   return (
     <div
