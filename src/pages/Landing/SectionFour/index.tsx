@@ -42,10 +42,10 @@ const SectionFour = () => {
         className="twenty-twenty-two"
         ref={imageRef}
       />
+      <p className="disclaimer">note</p>
       <Footer />
     </div>
   );
-  <p className="disclaimer">note</p>
 };
 
 export default SectionFour;
