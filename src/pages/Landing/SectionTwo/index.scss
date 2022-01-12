@@ -67,6 +67,12 @@
         width: auto;
       }
 
+      .glitch {
+        height:   153px;
+        opacity:  0;
+        position: absolute;
+      }
+
       &:nth-child(2n) {
         flex-direction:  row-reverse;
         justify-content: flex-end;

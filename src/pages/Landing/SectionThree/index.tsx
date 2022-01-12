@@ -23,9 +23,9 @@ const SectionThree = (): JSX.Element => {
       formAnimationObject(descriptionRef, 'left', '0', 500),
       formAnimationObject(groupMenuRef, 'opacity', 1, 1000),
       ...characterRef.current.map((ref: any, index: number) =>
-        formAnimationObject(ref, 'opacity', 1, 1200 + (index * 800))),
+        formAnimationObject(ref, 'opacity', 1, 1200 + (index * 500))),
       ...characterRef.current.map((ref: any, index: number) =>
-        formAnimationObject(ref, 'left', 0, 1200 + (index * 800)))
+        formAnimationObject(ref, 'left', 0, 1200 + (index * 500)))
     ];
 
     addAnimation(animations);
