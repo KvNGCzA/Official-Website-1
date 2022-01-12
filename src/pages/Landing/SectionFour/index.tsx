@@ -6,6 +6,7 @@ import Footer from '../../../components/Footer';
 
 const SectionFour = () => {
   const comingRef               = useRef() as MutableRefObject<any>;
+  const footNoteRef              = useRef() as MutableRefObject<any>;
   const sectionRef              = useRef() as MutableRefObject<any>;
   const [animated, setAnimated] = useState<boolean>(false);
   const imageRef                = useRef() as MutableRefObject<any>;
@@ -42,7 +43,7 @@ const SectionFour = () => {
         className="twenty-twenty-two"
         ref={imageRef}
       />
-      <p className="disclaimer" ref={comingRef}>note</p>
+      <p className="disclaimer" ref={footNoteRef}>note</p>
       <Footer />
     </div>
   );
