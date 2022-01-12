@@ -10,11 +10,15 @@ const Footer = () => {
   iconRef.current               = SOCIAL_ICONS
     .map((icon, index) => iconRef.current[index] ?? createRef());
   const wrapperRef              = useRef() as MutableRefObject<any>;
+  const noteRef                 = useRef() as MutableRefObject<any>;
 
   const runAnimations = useCallback(() => {
     const animations = iconRef.current.map((ref: any, index: number) =>
       formAnimationObject(ref, 'left', 0, index * 500));
-    addAnimation(animations);
+    addAnimation([
+      ...animations,
+      formAnimationObject(noteRef, 'opacity', 1, 2000)
+    ]);
   }, []);
 
   const handleScroll = useCallback(() => {
@@ -34,15 +38,21 @@ const Footer = () => {
 
   return (
     <footer className="footer" ref={wrapperRef}>
-      {SOCIAL_ICONS.map((social, index) => <img
-        src={process.env.PUBLIC_URL + '/icons/' + social + '.png'}
-        alt={'social'}
-        height={54}
-        width={54}
-        className="social-icon"
-        key={social}
-        ref={iconRef.current[index]}
-      />)}
+      <div className="icons">
+        {SOCIAL_ICONS.map((social, index) => <img
+          src={process.env.PUBLIC_URL + '/icons/' + social + '.png'}
+          alt={'social'}
+          height={54}
+          width={54}
+          className="social-icon"
+          key={social}
+          ref={iconRef.current[index]}
+        />)}
+      </div>
+      <p className="note" ref={noteRef}>
+        <b>Note:</b> Some of the images above are only visual representation of the upcoming original concept art, which
+                     would be updated soon
+      </p>
     </footer>
   );
 };
