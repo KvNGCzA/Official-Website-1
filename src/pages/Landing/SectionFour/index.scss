@@ -27,6 +27,19 @@
       text-transform: uppercase;
     }
 
+    .disclaimer {
+      animation:      textOpacity 2s linear infinite;
+      color:          $meta-white;
+      font-family:    Montserrat;
+      font-size:      rem-calc(4);
+      font-weight:    300;
+      left:           100%;
+      letter-spacing: 0.58em;
+      //margin-bottom:  26px;
+      position:       relative;
+      text-transform: uppercase;
+    }
+
     .twenty-twenty-two {
       animation: textOpacityTwo 3s infinite;
       position:  absolute;

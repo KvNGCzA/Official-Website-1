@@ -45,6 +45,7 @@ const SectionFour = () => {
       <Footer />
     </div>
   );
+  <p className="disclaimer">note</p>
 };
 
 export default SectionFour;
