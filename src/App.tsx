@@ -7,11 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 init(process.env.REACT_APP_EMAILJS_USER_ID ?? '');
 
-const App = (): JSX.Element =>
-  <Fragment>
-    <ToastContainer />
-    <Header />
-    <Landing />
-  </Fragment>;
+const App = (): JSX.Element => {
+  window.onbeforeunload = () => {
+    window.scrollTo(0, 0);
+  };
+
+  return (
+    <Fragment>
+      <ToastContainer />
+      <Header />
+      <Landing />
+    </Fragment>);
+};
 
 export default App;

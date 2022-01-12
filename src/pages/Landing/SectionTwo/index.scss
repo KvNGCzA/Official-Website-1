@@ -20,6 +20,7 @@
       padding: 0 370px 0 128px;
 
       .bot-image {
+        opacity:  0;
         position: absolute;
         right:    20%;
         top:      -107px;
@@ -57,11 +58,19 @@
       position:    relative;
 
       .bot-image {
-        height: fit-content;
+        height:   fit-content;
+        position: relative;
+        right:    100%;
       }
 
       .text-content {
         width: auto;
+      }
+
+      .glitch {
+        height:   153px;
+        opacity:  0;
+        position: absolute;
       }
 
       &:nth-child(2n) {
@@ -80,14 +89,20 @@
         .head {
           font-size:     rem-calc(64);
           font-weight:   800;
+          left:          2000px;
           margin-bottom: 61px;
+          opacity:       0;
+          position:      relative;
           white-space:   break-spaces;
         }
 
         .description {
           font-family: Gilroy;
           font-size:   rem-calc(20);
+          left:        100%;
           max-width:   753px;
+          opacity:     0;
+          position:    relative;
           white-space: break-spaces;
         }
       }
@@ -161,7 +176,7 @@
 
         .bot-image {
           margin:   0 !important;
-          position: initial !important;
+          position: relative !important;
         }
 
         .text-content {
