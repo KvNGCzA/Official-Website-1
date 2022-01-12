@@ -13,6 +13,7 @@ const SectionFour = () => {
 
   const runAnimations = useCallback(() => {
     const animations = [formAnimationObject(comingRef, 'left', 0, 2000)];
+    const animations = [formAnimationObject(footNoteRef, 'left', 0, 2000)];
 
     addAnimation(animations);
   }, []);
@@ -43,7 +44,7 @@ const SectionFour = () => {
         className="twenty-twenty-two"
         ref={imageRef}
       />
-      <p className="disclaimer" ref={footNoteRef}>note</p>
+      <p className="disclaimer" ref={footNoteRef}>note2323</p>
       <Footer />
     </div>
   );
