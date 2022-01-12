@@ -6,14 +6,12 @@ import Footer from '../../../components/Footer';
 
 const SectionFour = () => {
   const comingRef               = useRef() as MutableRefObject<any>;
-  const footNoteRef              = useRef() as MutableRefObject<any>;
   const sectionRef              = useRef() as MutableRefObject<any>;
   const [animated, setAnimated] = useState<boolean>(false);
   const imageRef                = useRef() as MutableRefObject<any>;
 
   const runAnimations = useCallback(() => {
     const animations = [formAnimationObject(comingRef, 'left', 0, 2000)];
-    const animations = [formAnimationObject(footNoteRef, 'left', 0, 2000)];
 
     addAnimation(animations);
   }, []);
@@ -44,7 +42,6 @@ const SectionFour = () => {
         className="twenty-twenty-two"
         ref={imageRef}
       />
-      <p className="disclaimer" ref={footNoteRef}>note2323</p>
       <Footer />
     </div>
   );
