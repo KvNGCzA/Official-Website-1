@@ -42,7 +42,7 @@ const SectionFour = () => {
         className="twenty-twenty-two"
         ref={imageRef}
       />
-      <p className="disclaimer">note</p>
+      <p className="disclaimer" ref={comingRef}>note</p>
       <Footer />
     </div>
   );
