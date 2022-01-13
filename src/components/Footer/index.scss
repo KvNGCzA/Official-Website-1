@@ -1,38 +1,55 @@
+@import 'src/assets/styles/variables';
+@import 'src/assets/styles/mixins';
+
 .footer {
-  align-items:     center;
-  display:         flex;
-  justify-content: center;
-  margin-top:      140px;
-  width:           100%;
+  margin-top: 140px;
+  width:      100%;
 
-  .social-icon {
-    left:     100%;
-    margin:   0 30px;
-    position: relative;
+  .icons {
+    align-items:     center;
+    display:         flex;
+    justify-content: center;
+    width:           100%;
 
-    &:first-of-type {
-      margin-left: 0;
+    .social-icon {
+      left:     100%;
+      margin:   0 30px;
+      position: relative;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
     }
+  }
 
-    &:last-of-type {
-      margin-right: 0;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
+  .note {
+    color:       $meta-white;
+    font-family: $gilroy;
+    font-size:   rem-calc(16);
+    margin-top:  20px;
+    opacity:     0;
   }
 }
 
 @media only screen and (max-width: 944px) {
   .footer {
     justify-content: space-around;
-    margin-top:      80px;
+    margin-top:      60px;
 
-    .social-icon {
-      height: 48px;
-      margin: 0;
-      width:  48px;
+    .icons {
+      .social-icon {
+        height: 48px;
+        margin: 0;
+        width:  48px;
+      }
     }
   }
 }
