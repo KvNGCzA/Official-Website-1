@@ -15,6 +15,19 @@
     padding:          299px 29px;
     position:         relative;
 
+    .heading {
+      color:          $meta-text-white;
+      font-family:    Montserrat;
+      letter-spacing: 2px;
+      position:       relative;
+      text-align:     center;
+      top:            -120px;
+
+      span {
+        text-transform: uppercase;
+      }
+    }
+
     .scrolling-image {
       background-size: 30% !important;
       height:          500%;
@@ -97,6 +110,10 @@
       align-items:     center;
       display:         flex;
       justify-content: center;
+
+      .heading {
+        font-size: rem-calc(24);
+      }
 
       .tag-line {
         font-size: rem-calc(16);
