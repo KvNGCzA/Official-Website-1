@@ -23,19 +23,21 @@ const SectionOne = (): JSX.Element => {
 
   return (
     <div className="section section__one">
-      <Typist avgTypingDelay={50}>
-        <h1 className="heading">
-          fro
-          <Typist.Backspace count={3} delay={1000} />
-          <span>
-          From the lost memeory
-          <Typist.Backspace count={4} delay={800} />
-          ory of humanitiy
-          <Typist.Backspace count={2} delay={800} />
-          y
-          </span>
-        </h1>
-      </Typist>
+      <div className="heading__wrapper">
+        <Typist avgTypingDelay={50}>
+          <h1 className="heading">
+            fRO
+            <Typist.Backspace count={3} delay={1000} />
+            <span>
+            From the lost memeory
+            <Typist.Backspace count={4} delay={800} />
+            ory of humanitiy
+            <Typist.Backspace count={2} delay={800} />
+            y
+            </span>
+          </h1>
+        </Typist>
+      </div>
       <div className="gif-wrapper" ref={gifRef}>
         <img src={SECTION_ONE.gifCharacters} alt="metacurse characters" className="characters" />
         <img src={SECTION_ONE.image} alt="metacurse gif logo" className="image" />

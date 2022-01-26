@@ -42,22 +42,23 @@ const Header = (): JSX.Element => {
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
 
+  const handleResize = useCallback(() => {
+    if (window.innerWidth > 944 && menuOpen) {
+      toggleMenu();
+    }
+  }, [toggleMenu, menuOpen]);
+
+  const handleScroll = useCallback((): void => {
+    if (window.scrollY >= 600 && !darkenHeader) {
+      setDarkenHeader(true);
+    }
+
+    if (window.scrollY < 600 && darkenHeader) {
+      setDarkenHeader(false);
+    }
+  }, [darkenHeader, setDarkenHeader]);
+
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 944 && menuOpen) {
-        toggleMenu();
-      }
-    };
-
-    const handleScroll = (): void => {
-      if (window.scrollY >= 200 && !darkenHeader) {
-        setDarkenHeader(true);
-      }
-
-      if (window.scrollY < 200 && darkenHeader) {
-        setDarkenHeader(false);
-      }
-    };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
@@ -66,13 +67,13 @@ const Header = (): JSX.Element => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [toggleMenu, menuOpen, darkenHeader]);
+  }, [handleScroll, handleResize]);
 
   return (
     <header className="header-wrapper">
       <div
         className="header-wrapper__sub-wrapper" style={{
-        background: darkenHeader ? '#0A060D' : 'rgba(0, 0, 0, 0.6)'
+        background: darkenHeader ? '#0A060D' : 'transparent'
       }}>
         <div className="header-container">
           <NeonLogo className="logo" />
