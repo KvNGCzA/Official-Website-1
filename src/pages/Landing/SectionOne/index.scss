@@ -18,21 +18,13 @@
     .heading {
       color:          $meta-text-white;
       font-family:    Montserrat;
+      left:           100%;
       letter-spacing: 2px;
+      opacity:        0;
       position:       relative;
       text-align:     center;
+      text-transform: uppercase;
       top:            -120px;
-
-      &__wrapper {
-        align-items:     center;
-        display:         flex;
-        justify-content: center;
-        min-height:      100px;
-      }
-
-      span {
-        text-transform: uppercase;
-      }
     }
 
     .scrolling-image {
